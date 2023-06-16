@@ -1,15 +1,35 @@
 import csv, numpy
 
-with open('insurance.csv','r', newline='') as csv_file:
-    reader = csv.reader(csv_file)
-    for row in reader:
-        print(', '.join(row))
-under_20s = []
+# data_lst = []
+def sort_age_group(myDict):
+
+
+def sort_dict(myDict):
+    myKeys = list(myDict.keys())
+    myKeys.sort()
+    sorted_dict = {i: myDict[i] for i in myKeys}
+    return sorted_dict
+
+# print(data_lst)
 #Sort by age groups
-for row in reader:
-    if row[0] < 20:
-        under_20s.append(row)
-print(under_20s)
+def count_age_group(data):
+    age_dict = {}
+    for line in data:
+        # print(line)
+        age = line.get('age')
+        if age in age_dict:
+            age_dict[age]+=1
+        else:
+            age_dict[age]=1
+    age_dict = sort_dict(age_dict)
+    print(age_dict)
+
+with open('insurance.csv','r', newline='') as csv_file:
+    reader = csv.DictReader(csv_file)
+    # for line in reader:
+    #     print(line.get('age'))
+    count_age_group(reader) # age range collected 18->64
+
 
 # What the average bmi for certain age groups (20s,30s,40s)
 
