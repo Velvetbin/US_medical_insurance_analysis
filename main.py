@@ -33,7 +33,8 @@ with open('insurance.csv','r', newline='') as csv_file:
 
 # What the average bmi for certain age groups (20s,30s,40s)
 
-
+def test():
+    return None
 
 
 # Same but with the amount of money insurance
